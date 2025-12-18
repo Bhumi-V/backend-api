@@ -9,6 +9,8 @@ const bodyParser = require('body-parser');
 
 const productRoutes = require('./routes/productRoutes');
 const userRoutes = require('./routes/userRoutes');
+const healthRoutes = require('./routes/healthRoutes');
+
 
 const app = express();
 
@@ -26,6 +28,7 @@ app.use((req, res, next) => {
 });
 
 // ---------- Routes ----------
+app.use('/api', healthRoutes);
 app.use('/products', productRoutes);  // e.g. GET /products, POST /products/add
 app.use('/users', userRoutes);       // e.g. POST /users/signup, /users/login
 
